@@ -20,24 +20,24 @@ A single-page portfolio styled like a retro game: pixel fonts, chunky 4px pixel-
 
 ## Projects
 
-| Project | Category | Description |
-|---|---|---|
-| [NikahPee](https://nikahpee.xsrazy.web.id) | Wedding invitations | Shopee-style wedding invitation for Usra & Zee. |
-| [NikahTube](https://nikahtube.xsrazy.web.id) | Wedding invitations | YouTube-style wedding invitation, free and open source. |
-| [Wedify](https://wedify.xsrazy.web.id) | Wedding invitations | Spotify-style wedding invitation, free and open source. |
-| [samaWA](https://samawa.xsrazy.web.id) | Wedding invitations | WhatsApp-style wedding invitation for Usra & Zee. |
-| [Nikah](https://nikah.xsrazy.web.id) | Wedding invitations | Classic digital wedding invitation for Usra & Zee. |
-| [NikahFix](https://nikahfix.xsrazy.web.id) | Wedding invitations | Netflix-style wedding invitation. |
-| [LinkPass](https://linkpass.xsrazy.web.id) | Web tools and apps | Free open-source link-in-bio generator with a digital pass concept. |
-| [TikBulk](https://tikbulk.xsrazy.web.id) | Web tools and apps | Bulk TikTok video downloader, no watermark. |
-| [Tools](https://tools.xsrazy.web.id) | Web tools and apps | 1,108 free micro tools that run entirely in the browser. |
-| [CekTag](https://cektag.xsrazy.web.id) | Web tools and apps | GetContact tag checker for unknown numbers. |
-| [TMail](https://tmail.xsrazy.web.id) | Temp mail | Free temporary email, no sign-up, auto-deletes in 24 hours. |
-| [myrobs.store](https://myrobs.store) | Store and catalog | Roblox services store. |
-| [FMCreators Marketplace](https://fmc.xsrazy.web.id) | Store and catalog | Curated Roblox clothing catalog. |
-| [Masakan Kekinian](https://msknkkn.xsrazy.web.id) | Recipes | Recipe discovery site. |
-| [GitHub Readme Stats](https://github-readme-stats.xsrazy.web.id) | Developer | Self-hosted GitHub profile card suite: graph, stats, streak, languages, trophy. |
-| [ShareCanva](https://sharecanva.com) | Design | Free monthly Canva Pro invite links. |
+| Preview | Project | Category | Description |
+|---|---|---|---|
+| <img src="thumbs/nikahpee.png" width="240" alt="NikahPee"> | [NikahPee](https://nikahpee.xsrazy.web.id) | Wedding invitations | Shopee-style wedding invitation for Usra & Zee. |
+| <img src="thumbs/nikahtube.png" width="240" alt="NikahTube"> | [NikahTube](https://nikahtube.xsrazy.web.id) | Wedding invitations | YouTube-style wedding invitation, free and open source. |
+| <img src="thumbs/wedify.png" width="240" alt="Wedify"> | [Wedify](https://wedify.xsrazy.web.id) | Wedding invitations | Spotify-style wedding invitation, free and open source. |
+| <img src="thumbs/samawa.png" width="240" alt="samaWA"> | [samaWA](https://samawa.xsrazy.web.id) | Wedding invitations | WhatsApp-style wedding invitation for Usra & Zee. |
+| <img src="thumbs/nikah.png" width="240" alt="Nikah"> | [Nikah](https://nikah.xsrazy.web.id) | Wedding invitations | Classic digital wedding invitation for Usra & Zee. |
+| <img src="thumbs/nikahfix.png" width="240" alt="NikahFix"> | [NikahFix](https://nikahfix.xsrazy.web.id) | Wedding invitations | Netflix-style wedding invitation. |
+| <img src="thumbs/linkpass.png" width="240" alt="LinkPass"> | [LinkPass](https://linkpass.xsrazy.web.id) | Web tools and apps | Free open-source link-in-bio generator with a digital pass concept. |
+| <img src="thumbs/tikbulk.png" width="240" alt="TikBulk"> | [TikBulk](https://tikbulk.xsrazy.web.id) | Web tools and apps | Bulk TikTok video downloader, no watermark. |
+| <img src="thumbs/tools.png" width="240" alt="Tools"> | [Tools](https://tools.xsrazy.web.id) | Web tools and apps | 1,108 free micro tools that run entirely in the browser. |
+| <img src="thumbs/cektag.png" width="240" alt="CekTag"> | [CekTag](https://cektag.xsrazy.web.id) | Web tools and apps | GetContact tag checker for unknown numbers. |
+| <img src="thumbs/tmail.png" width="240" alt="TMail"> | [TMail](https://tmail.xsrazy.web.id) | Temp mail | Free temporary email, no sign-up, auto-deletes in 24 hours. |
+| <img src="thumbs/myrobs-store.png" width="240" alt="myrobs.store"> | [myrobs.store](https://myrobs.store) | Store and catalog | Roblox services store. |
+| <img src="thumbs/fmc.png" width="240" alt="FMCreators Marketplace"> | [FMCreators Marketplace](https://fmc.xsrazy.web.id) | Store and catalog | Curated Roblox clothing catalog. |
+| <img src="https://s0.wp.com/mshots/v1/msknkkn.xsrazy.web.id?w=800" width="240" alt="Masakan Kekinian"> | [Masakan Kekinian](https://msknkkn.xsrazy.web.id) | Recipes | Recipe discovery site. |
+| <img src="thumbs/github-readme-stats.png" width="240" alt="GitHub Readme Stats"> | [GitHub Readme Stats](https://github-readme-stats.xsrazy.web.id) | Developer | Self-hosted GitHub profile card suite: graph, stats, streak, languages, trophy. |
+| <img src="https://s0.wp.com/mshots/v1/sharecanva.com?w=800" width="240" alt="ShareCanva"> | [ShareCanva](https://sharecanva.com) | Design | Free monthly Canva Pro invite links. |
 
 ## Features
 
