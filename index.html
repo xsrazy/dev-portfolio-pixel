@@ -48,7 +48,8 @@ header.player{display:grid;grid-template-columns:auto 1fr 280px;grid-template-ar
 .stat{background:#000;border:4px solid #000;padding:10px 12px;text-align:center;display:flex;flex-direction:column}
 .stat b{display:block;font-family:'Press Start 2P';font-size:16px;color:var(--green)}
 .stat span{font-size:18px;color:var(--muted);margin-top:auto}
-.start{display:inline-block;color:var(--green);text-decoration:none;font-family:'Press Start 2P';font-size:12px;animation:blink 1.1s steps(2) infinite}
+.start{display:inline-block;color:#000;background:var(--green);border:4px solid #000;box-shadow:inset -4px -4px 0 0 rgba(0,0,0,.3),inset 4px 4px 0 0 rgba(255,255,255,.25);padding:14px 16px;cursor:pointer;text-decoration:none;font-family:'Press Start 2P';font-size:12px;animation:blink 1.1s steps(2) infinite}
+.start:active{transform:translateY(2px);box-shadow:inset -2px -2px 0 0 rgba(0,0,0,.3),inset 2px 2px 0 0 rgba(255,255,255,.25)}
 @keyframes blink{50%{opacity:0}}
 h2.sec{font-size:14px;color:var(--blue);margin:40px 0 16px}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
@@ -100,6 +101,7 @@ header.player{padding:12px;gap:12px;grid-template-columns:72px 1fr;grid-template
 .stats .stat span{font-size:15px;line-height:1.1}
 header.player .side{width:auto;border:none;box-shadow:none;margin:12px 0 0;padding:0;gap:12px}
 .side .btn,.side .stat{width:100%}
+.start{display:block;text-align:center;padding:16px}
 .side .btn{padding:16px;font-size:12px}
 .side .stat{padding:16px 12px}
 .side .stat b{font-size:20px}
