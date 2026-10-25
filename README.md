@@ -4,6 +4,8 @@
 
 [![Live](https://img.shields.io/badge/live-dev.xsrazy.web.id-brightgreen)](https://dev.xsrazy.web.id)
 
+![Dev Portfolio Pixel Edition](assets/hero.png)
+
 **Live site: https://dev.xsrazy.web.id**
 
 ## About
