@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAHMATUL USRA - DEV PORTFOLIO</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#0f0f1b;--panel:#1a1c2c;--panel2:#24263d;--ink:#e8e8f0;--muted:#8b8fa3;--green:#00e436;--yellow:#f8e800;--red:#ff004d;--blue:#29adff}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'VT323',monospace;font-size:22px;line-height:1.35}
+.scanlines{position:fixed;inset:0;pointer-events:none;z-index:2000;opacity:.28;background:repeating-linear-gradient(0deg,rgba(0,0,0,.9) 0 1px,transparent 1px 3px)}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
+.ps{font-family:'Press Start 2P',monospace}
+.px{background:var(--panel);border:4px solid #000;box-shadow:inset -4px -4px 0 0 rgba(0,0,0,.4),inset 4px 4px 0 0 rgba(255,255,255,.07)}
+.avatar{grid-area:avatar}.head-name{grid-area:title}.bio{grid-area:bio}.stats{grid-area:stats}.start{grid-area:start}.side{grid-area:side}
+header.player{display:grid;grid-template-columns:auto 1fr 280px;grid-template-areas:"avatar title side" "avatar bio side" "avatar stats side" "avatar start side";gap:20px;align-items:start;padding:20px}
+.avatar{width:96px;height:96px;image-rendering:pixelated;background:var(--yellow);padding:4px;border:4px solid #000;box-shadow:4px 4px 0 #000;flex-shrink:0}
+.player h1{font-size:20px;margin:0;color:var(--yellow);line-height:1.5}
+.bio{color:var(--muted);font-size:22px;margin:0}
+.stats{display:flex;gap:8px;flex-wrap:wrap}
+.stat{background:#000;border:4px solid #000;padding:10px 12px;text-align:center;display:flex;flex-direction:column}
+.stat b{display:block;font-family:'Press Start 2P';font-size:16px;color:var(--green)}
+.stat span{font-size:18px;color:var(--muted);margin-top:auto}
+.start{display:inline-block;color:var(--green);text-decoration:none;font-family:'Press Start 2P';font-size:12px;animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+h2.sec{font-size:14px;color:var(--blue);margin:40px 0 16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{font-family:'Press Start 2P';font-size:9px;background:var(--panel);color:var(--ink);border:4px solid #000;padding:10px 12px;cursor:pointer}
+.chip.on{background:var(--yellow);color:#000}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{background:var(--panel);border:4px solid #000;box-shadow:inset -4px -4px 0 0 rgba(0,0,0,.4),inset 4px 4px 0 0 rgba(255,255,255,.07);overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:4/3;background:#000;overflow:hidden;border-bottom:4px solid #000}
+.thumb img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated;display:block}
+.nothumb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:'Press Start 2P';font-size:10px;background:repeating-conic-gradient(#1a1c2c 0% 25%,#24263d 0% 50%) 0 0/24px 24px}
+.body{padding:16px;display:flex;flex-direction:column;gap:8px;flex-grow:1}
+.tag{font-family:'Press Start 2P';font-size:8px;color:var(--red)}
+.card h3{font-family:'Press Start 2P';font-size:12px;margin:0;line-height:1.6}
+.card p{margin:0;color:var(--muted);font-size:21px;flex-grow:1}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.btn{font-family:'Press Start 2P';font-size:9px;padding:12px 14px;cursor:pointer;border:4px solid #000;box-shadow:inset -4px -4px 0 0 rgba(0,0,0,.3),inset 4px 4px 0 0 rgba(255,255,255,.25);text-decoration:none;display:inline-block}
+.btn:active{transform:translateY(4px);box-shadow:inset -4px -4px 0 0 rgba(0,0,0,.3)}
+.btn-visit{background:var(--green);color:#000}
+.btn-prev{background:var(--panel2);color:var(--ink)}
+.repo{display:flex;gap:12px;padding:14px 16px;margin-bottom:12px;align-items:flex-start}
+.swipe{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 14px;-webkit-overflow-scrolling:touch}.swipe .repo{flex:0 0 auto;min-width:260px;max-width:300px;margin-bottom:0;scroll-snap-align:start}
+.repo a.name{font-family:'Press Start 2P';font-size:11px;color:var(--blue);text-decoration:none;line-height:1.6}
+.repo a.name:hover{text-decoration:underline}
+.repo p{margin:4px 0 0;color:var(--muted);font-size:21px}
+.meta{font-size:19px;color:var(--muted);white-space:nowrap}
+.dot{display:inline-block;width:12px;height:12px;margin-right:6px}
+.skill{margin-bottom:14px}
+.skill .lbl{display:flex;justify-content:space-between;font-family:'Press Start 2P';font-size:10px;margin-bottom:6px}
+.bar{height:20px;background:#000;border:4px solid #000}
+.fill{height:100%;background:var(--green);box-shadow:inset -4px -4px 0 0 rgba(0,0,0,.3)}
+footer{margin-top:48px;text-align:center;color:var(--muted);font-size:20px}
+footer a{color:var(--blue)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:3000;padding:12px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--panel);border:4px solid #000;width:min(960px,96vw);height:min(85vh,820px);display:flex;flex-direction:column}
+.modal-bar{display:flex;align-items:center;gap:12px;padding:12px;border-bottom:4px solid #000}
+.modal-bar b{flex-grow:1;font-family:'Press Start 2P';font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.modal iframe{flex-grow:1;width:100%;border:0;background:#fff}
+@media(max-width:560px){
+.player h1{font-size:30px;line-height:1.2;overflow-wrap:break-word}
+.head-name{align-self:center}
+.wrap{padding:16px 12px 48px}
+header.player{padding:12px;gap:12px;grid-template-columns:72px 1fr;grid-template-areas:"avatar title" "bio bio" "stats stats" "start start" "side side"}
+.avatar{width:72px;height:72px}
+.bio{font-size:20px}
+.stats{gap:6px;flex-wrap:nowrap}
+.stats .stat{flex:1 1 0;min-width:0;padding:8px 4px}
+.stats .stat b{font-size:13px}
+.stats .stat span{font-size:15px;line-height:1.1}
+.side{width:auto;border:none;box-shadow:none;margin:12px -12px 0;padding:0;gap:12px}
+.side .btn{padding:16px;font-size:12px}
+.side .stat{padding:16px 12px}
+.side .stat b{font-size:20px}
+.side-title{padding:0 12px}
+h2.sec{margin:28px 0 12px}
+.grid{gap:14px}
+.modal{width:96vw;height:92vh}
+}
+.side{width:280px;flex-shrink:0;padding:16px;display:flex;flex-direction:column;gap:10px}
+.side-title{font-family:'Press Start 2P';font-size:10px;color:var(--yellow);margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="scanlines"></div>
+<div class="wrap">
+<header class="player px">
+<img class="avatar" src="https://avatars.githubusercontent.com/u/44527179?v=4" alt="Rahmatul Usra avatar">
+<div class="head-name"><h1>RAHMATUL USRA<br>@XSRAZY</h1></div>
+<p class="bio">"i don't need school, i have google!" - Sumatera Barat, Indonesia</p>
+<div class="stats">
+<div class="stat"><b id="st-years">YEARS 8</b><span>ON GITHUB</span></div>
+<div class="stat"><b id="st-repos">35</b><span>REPOS</span></div>
+<div class="stat"><b id="st-followers">67</b><span>FOLLOWERS</span></div>
+<div class="stat"><b id="st-stars">184</b><span>STARS</span></div>
+</div>
+<a class="start" href="#projects">&#9654; PRESS START - SEE PROJECTS</a>
+<div class="side px">
+<div class="side-title">CONTACT</div>
+<a class="btn btn-visit" href="https://github.com/xsrazy" target="_blank" rel="noopener">GITHUB</a>
+<a class="btn btn-prev" href="mailto:email@xsrazy.web.id">EMAIL</a>
+<div class="stat"><b>16</b><span>LIVE PROJECTS</span></div>
+</div>
+</header>
+<h2 class="sec" id="projects">&#9654; LIVE PROJECTS</h2>
+<div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div>
+<h2 class="sec">&#9733; TOP LOOT - STARRED REPOS</h2>
+<div id="repos"></div>
+<h2 class="sec">&#9733; MORE REPOS - SWIPE &#8594;</h2>
+<div class="swipe" id="swipe"></div>
+<h2 class="sec">SKILL TREE - LANGUAGES BY REPO COUNT</h2>
+<div id="skills"></div>
+<footer>
+<p>DATA FROM <a href="https://github.com/xsrazy">GITHUB.COM/XSRAZY</a></p>
+<p>PRESS START TO EXPLORE</p>
+</footer>
+</div>
+<div class="modal-overlay" id="overlay">
+<div class="modal">
+<div class="modal-bar"><b id="mTitle"></b><a id="mOpen" class="btn btn-visit" target="_blank" rel="noopener">OPEN TAB</a><button id="mClose" class="btn btn-prev">CLOSE</button></div>
+<iframe id="frame" title="Project preview"></iframe>
+</div>
+</div>
+<script>
+var projects = [
+  {t:"NikahPee", img:"thumbs/nikahpee.png", d:"nikahpee.xsrazy.web.id", u:"https://nikahpee.xsrazy.web.id", c:"Wedding invitations", x:"Shopee-style wedding invitation for Usra & Zee."},
+  {t:"NikahTube", img:"thumbs/nikahtube.png", d:"nikahtube.xsrazy.web.id", u:"https://nikahtube.xsrazy.web.id", c:"Wedding invitations", x:"YouTube-style wedding invitation, free and open source."},
+  {t:"Wedify", img:"thumbs/wedify.png", d:"wedify.xsrazy.web.id", u:"https://wedify.xsrazy.web.id", c:"Wedding invitations", x:"Spotify-style wedding invitation, free and open source."},
+  {t:"samaWA", img:"thumbs/samawa.png", d:"samawa.xsrazy.web.id", u:"https://samawa.xsrazy.web.id", c:"Wedding invitations", x:"WhatsApp-style wedding invitation for Usra & Zee."},
+  {t:"Nikah", img:"thumbs/nikah.png", d:"nikah.xsrazy.web.id", u:"https://nikah.xsrazy.web.id", c:"Wedding invitations", x:"Classic digital wedding invitation for Usra & Zee."},
+  {t:"NikahFix", img:"thumbs/nikahfix.png", d:"nikahfix.xsrazy.web.id", u:"https://nikahfix.xsrazy.web.id", c:"Wedding invitations", x:"Netflix-style wedding invitation."},
+  {t:"LinkPass", img:"thumbs/linkpass.png", d:"linkpass.xsrazy.web.id", u:"https://linkpass.xsrazy.web.id", c:"Web tools and apps", x:"Free open-source link-in-bio generator with a digital pass concept."},
+  {t:"TikBulk", img:"thumbs/tikbulk.png", d:"tikbulk.xsrazy.web.id", u:"https://tikbulk.xsrazy.web.id", c:"Web tools and apps", x:"Bulk TikTok video downloader, no watermark."},
+  {t:"Tools", img:"thumbs/tools.png", d:"tools.xsrazy.web.id", u:"https://tools.xsrazy.web.id", c:"Web tools and apps", x:"1,108 free micro tools that run entirely in the browser."},
+  {t:"CekTag", img:"thumbs/cektag.png", d:"cektag.xsrazy.web.id", u:"https://cektag.xsrazy.web.id", c:"Web tools and apps", x:"GetContact tag checker for unknown numbers."},
+  {t:"TMail", img:"thumbs/tmail.png", d:"tmail.xsrazy.web.id", u:"https://tmail.xsrazy.web.id", c:"Temp mail", x:"Free temporary email, no sign-up, auto-deletes in 24 hours."},
+  {t:"myrobs.store", img:"thumbs/myrobs-store.png", d:"myrobs.store", u:"https://myrobs.store", c:"Store and catalog", x:"Roblox services store."},
+  {t:"FMCreators Marketplace", img:"thumbs/fmc.png", d:"fmc.xsrazy.web.id", u:"https://fmc.xsrazy.web.id", c:"Store and catalog", x:"Curated Roblox clothing catalog."},
+  {t:"Masakan Kekinian", img:"https://s0.wp.com/mshots/v1/msknkkn.xsrazy.web.id?w=800", d:"msknkkn.xsrazy.web.id", u:"https://msknkkn.xsrazy.web.id", c:"Recipes", x:"Recipe discovery site."},
+  {t:"GitHub Readme Stats", img:"thumbs/github-readme-stats.png", d:"github-readme-stats.xsrazy.web.id", u:"https://github-readme-stats.xsrazy.web.id", c:"Developer", x:"Self-hosted GitHub profile card suite: graph, stats, streak, languages, trophy."},
+  {t:"ShareCanva", img:"https://s0.wp.com/mshots/v1/sharecanva.com?w=800", d:"sharecanva.com", u:"https://sharecanva.com", c:"Design", x:"Free monthly Canva Pro invite links."}
+];
+var repos = [
+  {n:"Download-All-Tiktok-Videos", s:61, l:"Python", c:"#3572A5", d:"Download all tiktok videos including description from username without watermark"},
+  {n:"TikTok-Batch-Downloader", s:46, l:"JavaScript", c:"#f1e05a", d:"A simple Node.js CLI tool to download multiple TikTok videos without watermarks"},
+  {n:"Tiktok-Mass-Downloader", s:35, l:"JavaScript", c:"#f1e05a", d:"Download all tiktok videos including description from username without watermark"},
+  {n:"Blum-BOT-Updated", s:15, l:"Python", c:"#3572A5", d:"Blum BOT Last Updated with Query"},
+  {n:"Discord-Bot", s:9, l:"Python", c:"#3572A5", d:"Discord Bot: Type and Delete Messages"},
+  {n:"GitHub-Auto-Push-by-Telegram", s:6, l:"JavaScript", c:"#f1e05a", d:"Node.js Telegram bot that automatically pushes a file to GitHub repositories"},
+  {n:"GitHub-Auto-Push", s:5, l:"JavaScript", c:"#f1e05a", d:"A tool to automatically push files to GitHub repositories at specified intervals"},
+  {n:"qr-code-generator", s:3, l:"TypeScript", c:"#3178c6", d:"A simple and lightweight application for generating QR Code"},
+  {n:"discord-ai-reply-bot", s:2, l:"Python", c:"#3572A5", d:"Auto-reply Discord bot powered by Gemini AI"},
+  {n:"WhatsApp-Auto-Translator-Bot", s:1, l:"JavaScript", c:"#f1e05a", d:"WhatsApp bot that translates messages between Indonesian, English, and Chinese"}
+];
+var grid = document.getElementById("grid");
+var chipsEl = document.getElementById("chips");
+var cats = ["All"];
+projects.forEach(function(p){ if (cats.indexOf(p.c) === -1) cats.push(p.c); });
+cats.forEach(function(c, i){
+  var b = document.createElement("button"); b.className = "chip" + (i === 0 ? " on" : ""); b.textContent = c;
+  b.addEventListener("click", function(){
+    var all = chipsEl.querySelectorAll(".chip"); all.forEach(function(x){ x.classList.remove("on"); });
+    b.classList.add("on"); render(c);
+  });
+  chipsEl.appendChild(b);
+});
+function render(cat){
+  grid.innerHTML = "";
+  projects.forEach(function(p){
+    if (cat !== "All" && p.c !== cat) return;
+    var card = document.createElement("div"); card.className = "card";
+    var th = document.createElement("div"); th.className = "thumb";
+    if (p.img) { var im = document.createElement("img"); im.src = p.img; im.alt = p.t; th.appendChild(im); }
+    else { var nd = document.createElement("div"); nd.className = "nothumb"; nd.textContent = "NO IMAGE"; th.appendChild(nd); }
+    var body = document.createElement("div"); body.className = "body";
+    var tag = document.createElement("div"); tag.className = "tag"; tag.textContent = p.c.toUpperCase();
+    var h3 = document.createElement("h3"); h3.textContent = p.t;
+    var desc = document.createElement("p"); desc.textContent = p.x;
+    var row = document.createElement("div"); row.className = "row";
+    var a = document.createElement("a"); a.className = "btn btn-visit"; a.href = p.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = "VISIT";
+    var pv = document.createElement("button"); pv.type = "button"; pv.className = "btn btn-prev"; pv.textContent = "PREVIEW";
+    pv.addEventListener("click", function(){ openPreview(p); });
+    row.appendChild(a); row.appendChild(pv);
+    body.appendChild(tag); body.appendChild(h3); body.appendChild(desc); body.appendChild(row);
+    card.appendChild(th); card.appendChild(body); grid.appendChild(card);
+  });
+}
+render("All");
+function renderRepoList(el, list){
+  el.innerHTML = "";
+  list.forEach(function(r){
+    var d = document.createElement("div"); d.className = "repo px";
+    var left = document.createElement("div"); left.style.flexGrow = "1";
+    var a = document.createElement("a"); a.className = "name"; a.href = "https://github.com/xsrazy/" + r.n; a.target = "_blank"; a.rel = "noopener"; a.textContent = r.n;
+    var p = document.createElement("p"); p.textContent = r.d;
+    left.appendChild(a); left.appendChild(p);
+    var m = document.createElement("div"); m.className = "meta";
+    m.innerHTML = '<span class="dot" style="background:' + r.c + '"></span>' + r.l + ' &nbsp; &#9733; ' + r.s;
+    d.appendChild(left); d.appendChild(m); el.appendChild(d);
+  });
+}
+function renderSkills(pairs){
+  var sk = document.getElementById("skills"); sk.innerHTML = "";
+  var max = 0; pairs.forEach(function(L){ if (L[1] > max) max = L[1]; });
+  pairs.forEach(function(L){
+    var w = max ? Math.round(L[1] / max * 100) : 0;
+    var s = document.createElement("div"); s.className = "skill";
+    s.innerHTML = '<div class="lbl"><span>' + L[0] + '</span><span>' + L[1] + ' REPOS</span></div><div class="bar"><div class="fill" style="width:' + w + '%"></div></div>';
+    sk.appendChild(s);
+  });
+}
+renderRepoList(document.getElementById("repos"), repos);
+var more = [{"n": "example-dev", "s": 0, "l": "HTML", "c": "#e34c26", "d": "Developer portfolio of Rahmatul Usra (@xsrazy) - 16 live projects in 7 catego..."}, {"n": "linkpass", "s": 0, "l": "HTML", "c": "#e34c26", "d": "Free and open source link-in-bio generator with a digital pass concept. Desig..."}, {"n": "samaWA", "s": 0, "l": "JavaScript", "c": "#f1e05a", "d": "A wedding invitation that arrives as a WhatsApp conversation."}, {"n": "github-readme-stats", "s": 0, "l": "JavaScript", "c": "#f1e05a", "d": "GitHub Readme Stats: a GitHub profile README card suite with an activity grap..."}, {"n": "NikahTube", "s": 0, "l": "JavaScript", "c": "#f1e05a", "d": "A YouTube-style digital wedding invitation template with a real backend and a..."}, {"n": "Wedify", "s": 0, "l": "JavaScript", "c": "#f1e05a", "d": "Spotify-style digital wedding invitation template. Free & open source: album..."}, {"n": "Nikah", "s": 0, "l": "JavaScript", "c": "#f1e05a", "d": "Undangan pernikahan digital online Usra & Zee dengan backend sendiri: buku ta..."}, {"n": "msknkkn.xsrazy.web.id", "s": 0, "l": "", "c": "#555555", "d": "Documentation for Masakan Kekinian, a recipe discovery website powered by the..."}, {"n": "myrobs.store", "s": 0, "l": "", "c": "#555555", "d": "Documentation for MyRobs.Store, a Roblox followers store with fixed packages..."}, {"n": "sharecanva.com", "s": 0, "l": "", "c": "#555555", "d": "Documentation for ShareCanva.com, a site that shares free Canva Pro team invi..."}, {"n": "fmc.xsrazy.web.id", "s": 0, "l": "", "c": "#555555", "d": "Documentation for FMCreators Marketplace, the FM Creators Roblox outfit catalog."}, {"n": "tikbulk.xsrazy.web.id", "s": 0, "l": "", "c": "#555555", "d": "Documentation for TikBulk, a bulk TikTok downloader: no-watermark videos, MP3..."}, {"n": "tools", "s": 0, "l": "HTML", "c": "#e34c26", "d": "1,100+ free online tools: calculators, converters, developer utilities and do..."}, {"n": "cektag", "s": 0, "l": "TypeScript", "c": "#3178c6", "d": "Phone number tag lookup powered by GetContact data, with automatic QRIS payme..."}, {"n": "tmail", "s": 0, "l": "JavaScript", "c": "#f1e05a", "d": "Free temporary email on 9 custom domains. Instant inbox in the browser with a..."}, {"n": "NikahFix", "s": 0, "l": "JavaScript", "c": "#f1e05a", "d": "Undangan pernikahan digital interaktif bergaya Netflix, lengkap dengan buku t..."}, {"n": "Xsrazy-Landing-Page", "s": 0, "l": "TypeScript", "c": "#3178c6", "d": "Personal portfolio landing page of Rahmatul Usra."}];
+renderRepoList(document.getElementById("swipe"), more);
+var langs = [["JavaScript",12],["Python",5],["HTML",4],["TypeScript",3],["Shell",1]];
+renderSkills(langs);
+(function(){
+  var colors = {"Python":"#3572A5","JavaScript":"#f1e05a","TypeScript":"#3178c6","HTML":"#e34c26","Shell":"#89e051"};
+  function ok(res){ if (!res.ok) throw new Error("gh"); return res.json(); }
+  Promise.all([
+    fetch("https://api.github.com/users/xsrazy").then(ok),
+    fetch("https://api.github.com/users/xsrazy/repos?per_page=100&sort=stars&direction=desc").then(ok)
+  ]).then(function(results){
+    var user = results[0], all = results[1];
+    var list = all.map(function(r){
+      return {n: r.name, s: r.stargazers_count, l: r.language || "", c: colors[r.language] || "#555555", d: r.description || "", fork: r.fork, h: r.homepage || ""};
+    });
+    list.sort(function(a, b){ return b.s - a.s; });
+    var top = list.slice(0, 10);
+    var topNames = {}; top.forEach(function(r){ topNames[r.n] = true; });
+    var rest = list.filter(function(r){ return !topNames[r.n] && !r.fork && r.h; }).map(function(r){
+      var x = {}; for (var k in r) x[k] = r[k];
+      if (x.d.length > 80) x.d = x.d.slice(0, 77).trim() + "...";
+      return x;
+    });
+    var counts = {}; list.forEach(function(r){ if (r.l) counts[r.l] = (counts[r.l] || 0) + 1; });
+    var pairs = Object.keys(counts).map(function(k){ return [k, counts[k]]; });
+    pairs.sort(function(a, b){ return b[1] - a[1]; });
+    renderRepoList(document.getElementById("repos"), top);
+    renderRepoList(document.getElementById("swipe"), rest);
+    renderSkills(pairs);
+    var years = new Date().getFullYear() - new Date(user.created_at).getFullYear();
+    var stars = 0; list.forEach(function(r){ stars += r.s; });
+    document.getElementById("st-years").textContent = "YEARS " + years;
+    document.getElementById("st-repos").textContent = user.public_repos;
+    document.getElementById("st-followers").textContent = user.followers;
+    document.getElementById("st-stars").textContent = stars;
+  }).catch(function(){});
+})();
+var overlay = document.getElementById("overlay");
+var frame = document.getElementById("frame");
+var mTitle = document.getElementById("mTitle");
+var mOpen = document.getElementById("mOpen");
+function openPreview(p){
+  mTitle.textContent = p.t;
+  mOpen.href = p.u;
+  frame.src = p.u;
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closePreview(){
+  overlay.classList.remove("open");
+  frame.src = "about:blank";
+  document.body.style.overflow = "";
+}
+document.getElementById("mClose").addEventListener("click", closePreview);
+overlay.addEventListener("click", function(e){ if (e.target === overlay) closePreview(); });
+document.addEventListener("keydown", function(e){ if (e.key === "Escape") closePreview(); });
+</script>
+</body>
+</html>
