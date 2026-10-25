@@ -299,6 +299,7 @@ function closePreview(){
 document.getElementById("mClose").addEventListener("click", closePreview);
 overlay.addEventListener("click", function(e){ if (e.target === overlay) closePreview(); });
 document.addEventListener("keydown", function(e){ if (e.key === "Escape") closePreview(); });
+document.querySelector(".start").addEventListener("click", function(e){ if (window.matchMedia("(max-width:560px)").matches) { e.preventDefault(); window.scrollTo({top: 0, behavior: "smooth"}); } });
 </script>
 </body>
 </html>
